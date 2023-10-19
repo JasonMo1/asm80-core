@@ -1,6 +1,6 @@
 /// <reference path="../parser.js" />
 
-import {I8080} from "../cpu/i8080.js";
+import { I8080 } from "../cpu/i8080.js";
 
 //QUnit test for parser.js
 
@@ -10,7 +10,7 @@ import * as Parser from "../parser.js";
 
 import { beautify } from "../beautify.js";
 
-QUnit.module('beautify');
+QUnit.module("beautify");
 //QUnit.config.hidepassed = true;
 
 //test suite
@@ -74,43 +74,39 @@ somelabel nop
   xyz
   xyz
 
-.end`
+.end`;
 
 const dummyFileGet = (filename) => {
     //console.log("INCLUDE", filename)
     return `nop
     .block blk
     dw 1
-    .endblock`
-}
+    .endblock`;
+};
 
 const doBeautify = (data) => {
     try {
-
-    
-    let lines = beautify(data, {assembler:I8080, fileGet:dummyFileGet});
-    return lines
+        let lines = beautify(data, { assembler: I8080, fileGet: dummyFileGet });
+        return lines;
     } catch (e) {
-        console.log(e)
-        return e
+        console.log(e);
+        return e;
     }
-}
+};
 
-const testParse = (data, showError=false) => {
+const testParse = (data, showError = false) => {
     try {
-
-    
-    let lines = beautify(data, {assembler:I8080, fileGet:dummyFileGet});
-    if (showError) console.log(lines)
-    return "OK"
+        let lines = beautify(data, { assembler: I8080, fileGet: dummyFileGet });
+        if (showError) console.log(lines);
+        return "OK";
     } catch (e) {
-        if (showError) console.log(e)
-        throw e
+        if (showError) console.log(e);
+        throw e;
     }
-}
+};
 
-QUnit.test('basic', assert => {
-    let o = doBeautify(data, true)
+QUnit.test("basic", (assert) => {
+    let o = doBeautify(data, true);
     //console.log("BEUA",o)
-  assert.ok(o, "beautify returns something");
+    assert.ok(o, "beautify returns something");
 });

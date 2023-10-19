@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">91.4% </span>
+                <span class="strong">91.59% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>532/582</span>
+                <span class='fraction'>534/583</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">91.4% </span>
+                <span class="strong">91.59% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>532/582</span>
+                <span class='fraction'>534/583</span>
             </div>
         
             
@@ -644,12 +644,12 @@
 <a name='L579'></a><a href='#L579'>579</a>
 <a name='L580'></a><a href='#L580'>580</a>
 <a name='L581'></a><a href='#L581'>581</a>
-<a name='L582'></a><a href='#L582'>582</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L582'></a><a href='#L582'>582</a>
+<a name='L583'></a><a href='#L583'>583</a>
+<a name='L584'></a><a href='#L584'>584</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -679,7 +679,9 @@
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">5x</span>
@@ -826,6 +828,7 @@
 <span class="cline-any cline-yes">201x</span>
 <span class="cline-any cline-yes">201x</span>
 <span class="cline-any cline-yes">224x</span>
+<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -1225,595 +1228,598 @@
 <span class="cline-any cline-yes">224x</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">import { Parser } from "./expression-parser.js";
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Parser } from "./expression-parser.js";
 import { fptozx } from "./utils/fp.js";
 &nbsp;
-&nbsp;
 export const pass2 = (vx, opts) =&gt; {
-&nbsp;
     const charVar8 = (dta) =&gt; {
         if (opts.PRAGMAS.RELAX) <span class="branch-0 cbranch-no" title="branch not covered" >{</span>
-<span class="cstat-no" title="statement not covered" >          if (typeof dta == "string") {</span>
-<span class="cstat-no" title="statement not covered" >            return dta.charCodeAt(0) &amp; 0xff;</span>
-<span class="cstat-no" title="statement not covered" >          } else {</span>
-<span class="cstat-no" title="statement not covered" >            return dta &amp; 0xff;</span>
-<span class="cstat-no" title="statement not covered" >          }</span>
+<span class="cstat-no" title="statement not covered" >            if (typeof dta == "string") {</span>
+<span class="cstat-no" title="statement not covered" >                return dta.charCodeAt(0) &amp; 0xff;</span>
+<span class="cstat-no" title="statement not covered" >            } else {</span>
+<span class="cstat-no" title="statement not covered" >                return dta &amp; 0xff;</span>
+<span class="cstat-no" title="statement not covered" >            }</span>
         } else {
-          //strict
-          if (typeof dta == "string") {
-            if (dta.length != 1) <span class="branch-0 cbranch-no" title="branch not covered" >throw "String parameter too long (" + dta + ")";</span>
-            return dta.charCodeAt(0) &amp; 0xff;
-          } else {
-            if (dta &gt; 255) <span class="branch-0 cbranch-no" title="branch not covered" >throw "Param out of bound (" + dta + ")";</span>
-            if (dta &lt; -128) <span class="branch-0 cbranch-no" title="branch not covered" >throw "Param out of bound (" + dta + ")";</span>
-            return dta &amp; 0xff;
-          }
+            //strict
+            if (typeof dta == "string") {
+                if (dta.length != 1) <span class="branch-0 cbranch-no" title="branch not covered" >throw "String parameter too long (" + dta + ")";</span>
+                return dta.charCodeAt(0) &amp; 0xff;
+            } else {
+                if (dta &gt; 255) <span class="branch-0 cbranch-no" title="branch not covered" >throw "Param out of bound (" + dta + ")";</span>
+                if (dta &lt; -128) <span class="branch-0 cbranch-no" title="branch not covered" >throw "Param out of bound (" + dta + ")";</span>
+                return dta &amp; 0xff;
+            }
         }
-      };
-      const charVar16 = <span class="fstat-no" title="function not covered" >(dta) =&gt; {</span>
+    };
+    const charVar16 = <span class="fstat-no" title="function not covered" >(dta) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >        if (typeof dta == "string") {</span>
-<span class="cstat-no" title="statement not covered" >          return dta.charCodeAt(0) &amp; 0xff;</span>
+<span class="cstat-no" title="statement not covered" >            return dta.charCodeAt(0) &amp; 0xff;</span>
 <span class="cstat-no" title="statement not covered" >        } else {</span>
-<span class="cstat-no" title="statement not covered" >          return dta &amp; 0xff;</span>
+<span class="cstat-no" title="statement not covered" >            return dta &amp; 0xff;</span>
 <span class="cstat-no" title="statement not covered" >        }</span>
-      };
-    
-      const nextAnon = <span class="fstat-no" title="function not covered" >(V, i) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >        console.log("AnonNext", i);</span>
-<span class="cstat-no" title="statement not covered" >      }</span>
-    
+    };
 &nbsp;
+    const nextAnon = <span class="fstat-no" title="function not covered" >(V, i) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >        console.log("AnonNext", i);</span>
+    };
 &nbsp;
     let V = vx[0];
     let vars = vx[1];
     //		console.log(vars);
-    let op = null, dta = null, m, bts, l;
+    let op = null,
+        dta = null,
+        m,
+        bts,
+        l;
     let blocks = [];
     let ifskip = 0;
     let cond;
     let doif = 0;
 &nbsp;
     for (let i = 0, j = V.length; i &lt; j; i++) {
-      try {
-        op = V[i];
-        op.pass = 2;
-&nbsp;
-        if (op.opcode === "ENDIF") {
-          ifskip = 0;
-          continue;
-        }
-&nbsp;
-        if (op.opcode === "ELSE") {
-          ifskip = ifskip ? 0 : 1;
-          continue;
-        }
-&nbsp;
-        if (ifskip) {
-          continue;
-        }
-&nbsp;
-        if (op.opcode === ".ERROR") <span class="branch-0 cbranch-no" title="branch not covered" >{</span>
-<span class="cstat-no" title="statement not covered" >          //console.log("ERROR", op)</span>
-<span class="cstat-no" title="statement not covered" >          throw {</span>
-<span class="cstat-no" title="statement not covered" >            msg: op.paramstring,</span>
-<span class="cstat-no" title="statement not covered" >            s: op</span>
-<span class="cstat-no" title="statement not covered" >          };</span>
-<span class="cstat-no" title="statement not covered" >          //continue;</span>
-<span class="cstat-no" title="statement not covered" >        }</span>
-&nbsp;
-        if (op.opcode === "IF") {
-          Parser.evaluate(op.params[0], vars);
-          try {
-            cond = Parser.evaluate(op.params[0], vars);
-            //console.log("IF", op.params, cond)
-            if (!cond) <span class="branch-0 cbranch-no" title="branch not covered" >ifskip = 1;</span>
-          } <span class="branch-0 cbranch-no" title="branch not covered" >catch (e) {</span>
-<span class="cstat-no" title="statement not covered" >            //console.log("CATCH",e)</span>
-<span class="cstat-no" title="statement not covered" >            throw {</span>
-<span class="cstat-no" title="statement not covered" >              msg: "IF condition mismatched"</span>
-<span class="cstat-no" title="statement not covered" >            };</span>
-<span class="cstat-no" title="statement not covered" >            ifskip = 1;</span>
-<span class="cstat-no" title="statement not covered" >          }</span>
-          continue;
-        }
-        if (op.opcode === "IFN") {
-          try {
-            cond = Parser.evaluate(op.params[0], vars);
-            if (cond) <span class="branch-0 cbranch-no" title="branch not covered" >ifskip = 1;</span>
-          } <span class="branch-0 cbranch-no" title="branch not covered" >catch (e) {</span>
-<span class="cstat-no" title="statement not covered" >            throw {</span>
-<span class="cstat-no" title="statement not covered" >              msg: "IF condition mismatched"</span>
-<span class="cstat-no" title="statement not covered" >            };</span>
-<span class="cstat-no" title="statement not covered" >          }</span>
-          continue;
-        }
-&nbsp;
-        vars._PC = op.addr;
-        //console.log(vars._PC,op);
         try {
-          let usage = Parser.usage(op.params[0].toUpperCase(), vars);
-          for (let u = 0; u &lt; usage.length; u++) {
-            if (!opts.xref[usage[u]].usage) opts.xref[usage[u]].usage = [];
-            opts.xref[usage[u]].usage.push({
-              line: op.numline,
-              file: op.includedFile || "*main*",
-            });
-          }
-        } catch (e) { }
-        try {
-          let usage = Parser.usage(op.params[1].toUpperCase(), vars);
-          for (let u = 0; u &lt; usage.length; u++) {
-            if (!opts.xref[usage[u]].usage) opts.xref[usage[u]].usage = [];
-            opts.xref[usage[u]].usage.push({
-              line: op.numline,
-              file: op.includedFile || "*main*",
-            });
-          }
-        } catch (e) { }
+            op = V[i];
+            op.pass = 2;
 &nbsp;
-        if (op.opcode === ".BLOCK") {
-          //blocks.push(op.numline);
-          if (!op.includedFileAtLine) <span class="branch-0 cbranch-no" title="branch not covered" >blocks.push(op.numline);</span>
-          else blocks.push(op.numline + "@" + op.includedFileAtLine);
-          let redef = vars["__" + blocks.join("/")];
-          for (let nn = 0; nn &lt; redef.length; nn++) {
-            vars[blocks.join("/") + "/" + redef[nn]] = vars[redef[nn]];
-            vars[redef[nn]] = vars[blocks.join("/") + "/" + redef[nn] + "$"];
-          }
-          continue;
-        }
-        if (op.opcode === ".ENDBLOCK") {
-          let redef = vars["__" + blocks.join("/")];
-          for (let nn = 0; nn &lt; redef.length; nn++) {
-            vars[redef[nn]] = vars[blocks.join("/") + "/" + redef[nn]];
-            if (vars[redef[nn]] === undefined) delete vars[redef[nn]];
-            vars[blocks.join("/") + "/" + redef[nn]] = null;
-          }
-          blocks.pop();
-          //console.log(vars);
-          continue;
-        }
+            if (op.opcode === "ENDIF") {
+                ifskip = 0;
+                continue;
+            }
 &nbsp;
-        if (op.opcode === ".ENT") {
-          opts.ENT = Parser.evaluate(op.params[0], vars);
-          continue;
-        }
+            if (op.opcode === "ELSE") {
+                ifskip = ifskip ? 0 : 1;
+                continue;
+            }
 &nbsp;
-        if (op.opcode === ".BINFROM") {
-          opts.BINFROM = Parser.evaluate(op.params[0], vars);
-          continue;
-        }
+            if (ifskip) {
+                continue;
+            }
 &nbsp;
-        if (op.opcode === ".BINTO") {
-          opts.BINTO = Parser.evaluate(op.params[0], vars);
-          continue;
-        }
+            if (op.opcode === ".ERROR") <span class="branch-0 cbranch-no" title="branch not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >                //console.log("ERROR", op)</span>
+<span class="cstat-no" title="statement not covered" >                throw {</span>
+<span class="cstat-no" title="statement not covered" >                    msg: op.paramstring,</span>
+<span class="cstat-no" title="statement not covered" >                    s: op,</span>
+<span class="cstat-no" title="statement not covered" >                };</span>
+<span class="cstat-no" title="statement not covered" >                //continue;</span>
+<span class="cstat-no" title="statement not covered" >            }</span>
 &nbsp;
-        if (op.opcode === ".SETPHASE") <span class="branch-0 cbranch-no" title="branch not covered" >{</span>
-<span class="cstat-no" title="statement not covered" >          if (!opts.PHASES) opts.PHASES = {};</span>
-<span class="cstat-no" title="statement not covered" >          opts.PHASES[op.addr] = op.params[0];</span>
-<span class="cstat-no" title="statement not covered" >          continue;</span>
-<span class="cstat-no" title="statement not covered" >        }</span>
+            if (op.opcode === "IF") {
+                Parser.evaluate(op.params[0], vars);
+                try {
+                    cond = Parser.evaluate(op.params[0], vars);
+                    //console.log("IF", op.params, cond)
+                    if (!cond) <span class="branch-0 cbranch-no" title="branch not covered" >ifskip = 1;</span>
+                } <span class="branch-0 cbranch-no" title="branch not covered" >catch (e) {</span>
+<span class="cstat-no" title="statement not covered" >                    //console.log("CATCH",e)</span>
+<span class="cstat-no" title="statement not covered" >                    throw {</span>
+<span class="cstat-no" title="statement not covered" >                        msg: "IF condition mismatched",</span>
+<span class="cstat-no" title="statement not covered" >                    };</span>
+<span class="cstat-no" title="statement not covered" >                    ifskip = 1;</span>
+<span class="cstat-no" title="statement not covered" >                }</span>
+                continue;
+            }
+            if (op.opcode === "IFN") {
+                try {
+                    cond = Parser.evaluate(op.params[0], vars);
+                    if (cond) <span class="branch-0 cbranch-no" title="branch not covered" >ifskip = 1;</span>
+                } <span class="branch-0 cbranch-no" title="branch not covered" >catch (e) {</span>
+<span class="cstat-no" title="statement not covered" >                    throw {</span>
+<span class="cstat-no" title="statement not covered" >                        msg: "IF condition mismatched",</span>
+<span class="cstat-no" title="statement not covered" >                    };</span>
+<span class="cstat-no" title="statement not covered" >                }</span>
+                continue;
+            }
 &nbsp;
-        if (op.opcode === ".ENGINE") {
-          opts.ENGINE = op.params[0];
-          continue;
-        }
-        /*
+            vars._PC = op.addr;
+            //console.log(vars._PC,op);
+            try {
+                let usage = Parser.usage(op.params[0].toUpperCase(), vars);
+                for (let u = 0; u &lt; usage.length; u++) {
+                    if (!opts.xref[usage[u]].usage) opts.xref[usage[u]].usage = [];
+                    opts.xref[usage[u]].usage.push({
+                        line: op.numline,
+                        file: op.includedFile || "*main*",
+                    });
+                }
+            } catch (e) {}
+            try {
+                let usage = Parser.usage(op.params[1].toUpperCase(), vars);
+                for (let u = 0; u &lt; usage.length; u++) {
+                    if (!opts.xref[usage[u]].usage) opts.xref[usage[u]].usage = [];
+                    opts.xref[usage[u]].usage.push({
+                        line: op.numline,
+                        file: op.includedFile || "*main*",
+                    });
+                }
+            } catch (e) {}
+&nbsp;
+            if (op.opcode === ".BLOCK") {
+                //blocks.push(op.numline);
+                if (!op.includedFileAtLine) <span class="branch-0 cbranch-no" title="branch not covered" >blocks.push(op.numline);</span>
+                else blocks.push(op.numline + "@" + op.includedFileAtLine);
+                let redef = vars["__" + blocks.join("/")];
+                for (let nn = 0; nn &lt; redef.length; nn++) {
+                    vars[blocks.join("/") + "/" + redef[nn]] = vars[redef[nn]];
+                    vars[redef[nn]] = vars[blocks.join("/") + "/" + redef[nn] + "$"];
+                }
+                continue;
+            }
+            if (op.opcode === ".ENDBLOCK") {
+                let redef = vars["__" + blocks.join("/")];
+                for (let nn = 0; nn &lt; redef.length; nn++) {
+                    vars[redef[nn]] = vars[blocks.join("/") + "/" + redef[nn]];
+                    if (vars[redef[nn]] === undefined) delete vars[redef[nn]];
+                    vars[blocks.join("/") + "/" + redef[nn]] = null;
+                }
+                blocks.pop();
+                //console.log(vars);
+                continue;
+            }
+&nbsp;
+            if (op.opcode === ".ENT") {
+                opts.ENT = Parser.evaluate(op.params[0], vars);
+                continue;
+            }
+&nbsp;
+            if (op.opcode === ".BINFROM") {
+                opts.BINFROM = Parser.evaluate(op.params[0], vars);
+                continue;
+            }
+&nbsp;
+            if (op.opcode === ".BINTO") {
+                opts.BINTO = Parser.evaluate(op.params[0], vars);
+                continue;
+            }
+&nbsp;
+            if (op.opcode === ".SETPHASE") <span class="branch-0 cbranch-no" title="branch not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >                if (!opts.PHASES) opts.PHASES = {};</span>
+<span class="cstat-no" title="statement not covered" >                opts.PHASES[op.addr] = op.params[0];</span>
+<span class="cstat-no" title="statement not covered" >                continue;</span>
+<span class="cstat-no" title="statement not covered" >            }</span>
+&nbsp;
+            if (op.opcode === ".ENGINE") {
+                opts.ENGINE = op.params[0];
+                continue;
+            }
+            /*
       if (op.opcode === ".PRAGMA") {
         opts.PRAGMAS=opts.PRAGMAS || [];
         opts.PRAGMAS.push(op.params[0].toUpperCase());
         continue;
       }
       */
-        if (op.opcode === "EQU") {
-          //console.log(op.label);
-          if (!op.label) throw {
-            msg: "EQU without label",
-            s: op
-          };
-          vars[op.label] = Parser.evaluate(op.params[0], vars);
-          continue;
-        }
-        if (op.opcode === ".SET" || op.opcode === ":=") {
-          //console.log(op.label, op.params[0], vars);
-          vars[op.label] = Parser.evaluate(op.params[0], vars);
-          continue;
-        }
-        if (op.opcode === "DB" || op.opcode === "FCB") {
-          bts = 0;
-          op.lens = [];
-          for (l = 0; l &lt; op.params.length; l++) {
-            m = Parser.evaluate(op.params[l], vars);
-            if (typeof m === "number") {
-              op.lens[bts++] = Math.floor(m % 256);
-              continue;
+            if (op.opcode === "EQU") {
+                //console.log(op.label);
+                if (!op.label)
+                    throw {
+                        msg: "EQU without label",
+                        s: op,
+                    };
+                vars[op.label] = Parser.evaluate(op.params[0], vars);
+                continue;
             }
-            if (typeof m === "string") {
-              for (let mm = 0; mm &lt; m.length; mm++) {
-                op.lens[bts++] = m.charCodeAt(mm);
-              }
-              continue;
+            if (op.opcode === ".SET" || op.opcode === ":=") {
+                //console.log(op.label, op.params[0], vars);
+                vars[op.label] = Parser.evaluate(op.params[0], vars);
+                continue;
             }
-          }
-          continue;
-        }
-        if (op.opcode === "FCC") {
-          bts = 0;
-          op.lens = [];
-          for (l = 0; l &lt; op.params.length; l++) {
-            let mystring = op.params[l].trim();
-            let delim = mystring[0];
-            let m = mystring.substr(1, mystring.length - 2);
-            for (let mm = 0; mm &lt; m.length; mm++) {
-              op.lens[bts++] = m.charCodeAt(mm);
+            if (op.opcode === "DB" || op.opcode === "FCB") {
+                bts = 0;
+                op.lens = [];
+                for (l = 0; l &lt; op.params.length; l++) {
+                    m = Parser.evaluate(op.params[l], vars);
+                    if (typeof m === "number") {
+                        op.lens[bts++] = Math.floor(m % 256);
+                        continue;
+                    }
+                    if (typeof m === "string") {
+                        for (let mm = 0; mm &lt; m.length; mm++) {
+                            op.lens[bts++] = m.charCodeAt(mm);
+                        }
+                        continue;
+                    }
+                }
+                continue;
             }
-          }
-          continue;
-        }
+            if (op.opcode === "FCC") {
+                bts = 0;
+                op.lens = [];
+                for (l = 0; l &lt; op.params.length; l++) {
+                    let mystring = op.params[l].trim();
+                    let delim = mystring[0];
+                    let m = mystring.substr(1, mystring.length - 2);
+                    for (let mm = 0; mm &lt; m.length; mm++) {
+                        op.lens[bts++] = m.charCodeAt(mm);
+                    }
+                }
+                continue;
+            }
 &nbsp;
-        if (op.opcode === ".CSTR") {
-          bts = 0;
-          op.lens = [];
-          for (l = 0; l &lt; op.params.length; l++) {
-            m = Parser.evaluate(op.params[l], vars);
-            if (typeof m === "number") {
-              op.lens[bts++] = Math.floor(m % 256);
-              continue;
+            if (op.opcode === ".CSTR") {
+                bts = 0;
+                op.lens = [];
+                for (l = 0; l &lt; op.params.length; l++) {
+                    m = Parser.evaluate(op.params[l], vars);
+                    if (typeof m === "number") {
+                        op.lens[bts++] = Math.floor(m % 256);
+                        continue;
+                    }
+                    if (typeof m === "string") {
+                        for (let mm = 0; mm &lt; m.length; mm++) {
+                            op.lens[bts++] = m.charCodeAt(mm);
+                        }
+                        continue;
+                    }
+                }
+                op.lens[bts++] = 0;
+                continue;
             }
-            if (typeof m === "string") {
-              for (let mm = 0; mm &lt; m.length; mm++) {
-                op.lens[bts++] = m.charCodeAt(mm);
-              }
-              continue;
-            }
-          }
-          op.lens[bts++] = 0;
-          continue;
-        }
 &nbsp;
-        if (op.opcode === ".PSTR") {
-          bts = 1;
-          op.lens = [];
-          for (l = 0; l &lt; op.params.length; l++) {
-            m = Parser.evaluate(op.params[l], vars);
-            if (typeof m === "number") {
-              op.lens[bts++] = Math.floor(m % 256);
-              continue;
+            if (op.opcode === ".PSTR") {
+                bts = 1;
+                op.lens = [];
+                for (l = 0; l &lt; op.params.length; l++) {
+                    m = Parser.evaluate(op.params[l], vars);
+                    if (typeof m === "number") {
+                        op.lens[bts++] = Math.floor(m % 256);
+                        continue;
+                    }
+                    if (typeof m === "string") {
+                        for (let mm = 0; mm &lt; m.length; mm++) {
+                            op.lens[bts++] = m.charCodeAt(mm);
+                        }
+                        continue;
+                    }
+                }
+                op.lens[0] = bts - 1;
+                continue;
             }
-            if (typeof m === "string") {
-              for (let mm = 0; mm &lt; m.length; mm++) {
-                op.lens[bts++] = m.charCodeAt(mm);
-              }
-              continue;
-            }
-          }
-          op.lens[0] = bts - 1;
-          continue;
-        }
 &nbsp;
-        if (op.opcode === ".ISTR") {
-          bts = 0;
-          op.lens = [];
-          for (l = 0; l &lt; op.params.length; l++) {
-            m = Parser.evaluate(op.params[l], vars);
-            if (typeof m === "number") {
-              op.lens[bts++] = Math.floor(m % 128);
-              continue;
+            if (op.opcode === ".ISTR") {
+                bts = 0;
+                op.lens = [];
+                for (l = 0; l &lt; op.params.length; l++) {
+                    m = Parser.evaluate(op.params[l], vars);
+                    if (typeof m === "number") {
+                        op.lens[bts++] = Math.floor(m % 128);
+                        continue;
+                    }
+                    if (typeof m === "string") {
+                        for (let mm = 0; mm &lt; m.length; mm++) {
+                            op.lens[bts++] = m.charCodeAt(mm) &amp; 0x7f;
+                        }
+                        continue;
+                    }
+                }
+                op.lens[bts - 1] = op.lens[bts - 1] | 0x80;
+                continue;
             }
-            if (typeof m === "string") {
-              for (let mm = 0; mm &lt; m.length; mm++) {
-                op.lens[bts++] = m.charCodeAt(mm) &amp; 0x7f;
-              }
-              continue;
-            }
-          }
-          op.lens[bts - 1] = op.lens[bts - 1] | 0x80;
-          continue;
-        }
 &nbsp;
-        if (op.opcode === "DW" || op.opcode === "FDB") {
-          bts = 0;
-          op.lens = [];
-          for (l = 0; l &lt; op.params.length; l++) {
-            m = Parser.evaluate(op.params[l], vars);
-            if (typeof m === "number") {
-              if (opts.endian) {
-                op.lens[bts++] = Math.floor(m / 256);
-                op.lens[bts++] = Math.floor(m % 256);
-              } else {
-                op.lens[bts++] = Math.floor(m % 256);
-                op.lens[bts++] = Math.floor(m / 256);
-              }
-              continue;
+            if (op.opcode === "DW" || op.opcode === "FDB") {
+                bts = 0;
+                op.lens = [];
+                for (l = 0; l &lt; op.params.length; l++) {
+                    m = Parser.evaluate(op.params[l], vars);
+                    if (typeof m === "number") {
+                        if (opts.endian) {
+                            op.lens[bts++] = Math.floor(m / 256);
+                            op.lens[bts++] = Math.floor(m % 256);
+                        } else {
+                            op.lens[bts++] = Math.floor(m % 256);
+                            op.lens[bts++] = Math.floor(m / 256);
+                        }
+                        continue;
+                    }
+                }
+                continue;
             }
-          }
-          continue;
-        }
 &nbsp;
-        if (op.opcode === "DD") {
-          //console.error("DD")
-          bts = 0;
-          op.lens = [];
-          for (l = 0; l &lt; op.params.length; l++) {
-            m = Parser.evaluate(op.params[l], vars);
-            if (typeof m === "number") {
-              //console.error(m)
-              let b = new ArrayBuffer(4);
-              let c = new Int32Array(b);
-              c[0] = m;
-              let a = new Uint8Array(b);
-              if (opts.endian) {
-                op.lens[bts++] = a[3];
-                op.lens[bts++] = a[2];
-                op.lens[bts++] = a[1];
-                op.lens[bts++] = a[0];
-              } else {
-                op.lens[bts++] = a[0];
-                op.lens[bts++] = a[1];
-                op.lens[bts++] = a[2];
-                op.lens[bts++] = a[3];
-              }
-              continue;
+            if (op.opcode === "DD") {
+                //console.error("DD")
+                bts = 0;
+                op.lens = [];
+                for (l = 0; l &lt; op.params.length; l++) {
+                    m = Parser.evaluate(op.params[l], vars);
+                    if (typeof m === "number") {
+                        //console.error(m)
+                        let b = new ArrayBuffer(4);
+                        let c = new Int32Array(b);
+                        c[0] = m;
+                        let a = new Uint8Array(b);
+                        if (opts.endian) {
+                            op.lens[bts++] = a[3];
+                            op.lens[bts++] = a[2];
+                            op.lens[bts++] = a[1];
+                            op.lens[bts++] = a[0];
+                        } else {
+                            op.lens[bts++] = a[0];
+                            op.lens[bts++] = a[1];
+                            op.lens[bts++] = a[2];
+                            op.lens[bts++] = a[3];
+                        }
+                        continue;
+                    }
+                }
+                continue;
             }
-          }
-          continue;
-        }
 &nbsp;
-        if (op.opcode === "DF") {
-          //console.error("DD")
-          bts = 0;
-          op.lens = [];
-          for (l = 0; l &lt; op.params.length; l++) {
-            m = Parser.evaluate(op.params[l], vars);
-            if (typeof m === "number") {
-              //console.error(m)
-              let b = new ArrayBuffer(4);
-              let c = new Float32Array(b);
-              c[0] = m;
-              let a = new Uint8Array(b);
-              if (opts.endian) {
-                op.lens[bts++] = a[3];
-                op.lens[bts++] = a[2];
-                op.lens[bts++] = a[1];
-                op.lens[bts++] = a[0];
-              } else {
-                op.lens[bts++] = a[0];
-                op.lens[bts++] = a[1];
-                op.lens[bts++] = a[2];
-                op.lens[bts++] = a[3];
-              }
-              continue;
+            if (op.opcode === "DF") {
+                //console.error("DD")
+                bts = 0;
+                op.lens = [];
+                for (l = 0; l &lt; op.params.length; l++) {
+                    m = Parser.evaluate(op.params[l], vars);
+                    if (typeof m === "number") {
+                        //console.error(m)
+                        let b = new ArrayBuffer(4);
+                        let c = new Float32Array(b);
+                        c[0] = m;
+                        let a = new Uint8Array(b);
+                        if (opts.endian) {
+                            op.lens[bts++] = a[3];
+                            op.lens[bts++] = a[2];
+                            op.lens[bts++] = a[1];
+                            op.lens[bts++] = a[0];
+                        } else {
+                            op.lens[bts++] = a[0];
+                            op.lens[bts++] = a[1];
+                            op.lens[bts++] = a[2];
+                            op.lens[bts++] = a[3];
+                        }
+                        continue;
+                    }
+                }
+                continue;
             }
-          }
-          continue;
-        }
-        if (op.opcode === "DFF") {
-          //console.error("DD")
-          bts = 0;
-          op.lens = [];
-          for (l = 0; l &lt; op.params.length; l++) {
-            m = Parser.evaluate(op.params[l], vars);
-            if (typeof m === "number") {
-              //console.error(m)
-              let b = new ArrayBuffer(8);
-              let c = new Float64Array(b);
-              c[0] = m;
-              let a = new Uint8Array(b);
-              if (opts.endian) {
-                op.lens[bts++] = a[7];
-                op.lens[bts++] = a[6];
-                op.lens[bts++] = a[5];
-                op.lens[bts++] = a[4];
-                op.lens[bts++] = a[3];
-                op.lens[bts++] = a[2];
-                op.lens[bts++] = a[1];
-                op.lens[bts++] = a[0];
-              } else {
-                op.lens[bts++] = a[0];
-                op.lens[bts++] = a[1];
-                op.lens[bts++] = a[2];
-                op.lens[bts++] = a[3];
-                op.lens[bts++] = a[4];
-                op.lens[bts++] = a[5];
-                op.lens[bts++] = a[6];
-                op.lens[bts++] = a[7];
-              }
-              continue;
+            if (op.opcode === "DFF") {
+                //console.error("DD")
+                bts = 0;
+                op.lens = [];
+                for (l = 0; l &lt; op.params.length; l++) {
+                    m = Parser.evaluate(op.params[l], vars);
+                    if (typeof m === "number") {
+                        //console.error(m)
+                        let b = new ArrayBuffer(8);
+                        let c = new Float64Array(b);
+                        c[0] = m;
+                        let a = new Uint8Array(b);
+                        if (opts.endian) {
+                            op.lens[bts++] = a[7];
+                            op.lens[bts++] = a[6];
+                            op.lens[bts++] = a[5];
+                            op.lens[bts++] = a[4];
+                            op.lens[bts++] = a[3];
+                            op.lens[bts++] = a[2];
+                            op.lens[bts++] = a[1];
+                            op.lens[bts++] = a[0];
+                        } else {
+                            op.lens[bts++] = a[0];
+                            op.lens[bts++] = a[1];
+                            op.lens[bts++] = a[2];
+                            op.lens[bts++] = a[3];
+                            op.lens[bts++] = a[4];
+                            op.lens[bts++] = a[5];
+                            op.lens[bts++] = a[6];
+                            op.lens[bts++] = a[7];
+                        }
+                        continue;
+                    }
+                }
+                continue;
             }
-          }
-          continue;
-        }
 &nbsp;
-        if (op.opcode === "DFZXS") {
-          //console.error("DD")
-          bts = 0;
-          op.lens = [];
-          for (l = 0; l &lt; op.params.length; l++) {
-            m = Parser.evaluate(op.params[l], vars);
-            if (typeof m === "number") {
-              //console.error(m)
-              let a = fptozx(m, false);
-              //console.log(m,a)
-              if (opts.endian) {
-                op.lens[bts++] = a[4];
-                op.lens[bts++] = a[3];
-                op.lens[bts++] = a[2];
-                op.lens[bts++] = a[1];
-                op.lens[bts++] = a[0];
-              } else {
-                op.lens[bts++] = a[0];
-                op.lens[bts++] = a[1];
-                op.lens[bts++] = a[2];
-                op.lens[bts++] = a[3];
-                op.lens[bts++] = a[4];
-              }
-              continue;
+            if (op.opcode === "DFZXS") {
+                //console.error("DD")
+                bts = 0;
+                op.lens = [];
+                for (l = 0; l &lt; op.params.length; l++) {
+                    m = Parser.evaluate(op.params[l], vars);
+                    if (typeof m === "number") {
+                        //console.error(m)
+                        let a = fptozx(m, false);
+                        //console.log(m,a)
+                        if (opts.endian) {
+                            op.lens[bts++] = a[4];
+                            op.lens[bts++] = a[3];
+                            op.lens[bts++] = a[2];
+                            op.lens[bts++] = a[1];
+                            op.lens[bts++] = a[0];
+                        } else {
+                            op.lens[bts++] = a[0];
+                            op.lens[bts++] = a[1];
+                            op.lens[bts++] = a[2];
+                            op.lens[bts++] = a[3];
+                            op.lens[bts++] = a[4];
+                        }
+                        continue;
+                    }
+                }
+                continue;
             }
-          }
-          continue;
-        }
 &nbsp;
-        /*
+            /*
       if (op.opcode === "DS") {
         console.log(op);
       }
 */
-        //Tady se děje magie s instrukcí
-        if (op.anonymousLabel) {
-          //console.log(op);
-          vars["ANON_PREV_2"] = ["ANON_PREV_1"];
-          vars["ANON_PREV_1"] = op.addr;
-          //console.log(vars);
-        }
-&nbsp;
-        if (op.lens &amp;&amp; op.lens[1] &amp;&amp; typeof op.lens[1] === "function") {
-          if (op.lens[2] === "addr24") {
-            //3 bytes - 65816 modes
-            dta = op.lens[1](vars);
-            if (opts.endian) {
-              op.lens[3] = Math.floor(dta % 256);
-              op.lens[2] = Math.floor((dta &gt;&gt; 8) % 256);
-              op.lens[1] = Math.floor((dta &gt;&gt; 16) &amp; 0xff);
-            } else {
-              op.lens[1] = Math.floor(dta % 256);
-              op.lens[2] = Math.floor((dta &gt;&gt; 8) % 256);
-              op.lens[3] = Math.floor((dta &gt;&gt; 16) &amp; 0xff);
+            //Tady se děje magie s instrukcí
+            if (op.anonymousLabel) {
+                //console.log(op);
+                vars["ANON_PREV_2"] = ["ANON_PREV_1"];
+                vars["ANON_PREV_1"] = op.addr;
+                //console.log(vars);
             }
-          } else if (op.lens[2] === "addr32") {
-            //3 bytes - 65816 modes
-            dta = op.lens[1](vars);
-            if (opts.endian) {
-              op.lens[4] = Math.floor(dta % 256);
-              op.lens[3] = Math.floor((dta &gt;&gt; 8) % 256);
-              op.lens[2] = Math.floor((dta &gt;&gt; 16) &amp; 0xff);
-              op.lens[1] = Math.floor((dta &gt;&gt; 24) &amp; 0xff);
-            } else {
-              op.lens[1] = Math.floor(dta % 256);
-              op.lens[2] = Math.floor((dta &gt;&gt; 8) % 256);
-              op.lens[3] = Math.floor((dta &gt;&gt; 16) &amp; 0xff);
-              op.lens[4] = Math.floor((dta &gt;&gt; 24) &amp; 0xff);
-            }
-          } else if (op.lens[2] === null) {
-            //2 bytes
-            dta = op.lens[1](vars);
-            if (typeof dta == "string") {
-              if (opts.endian) {
-                op.lens[1] = dta.charCodeAt(0) &amp; 0xff;
-                op.lens[2] = dta.charCodeAt(1) &amp; 0xff;
-              } else {
-                op.lens[2] = dta.charCodeAt(0) &amp; 0xff;
-                op.lens[1] = dta.charCodeAt(1) &amp; 0xff;
-              }
-            } else {
-              if (opts.endian) {
-                op.lens[2] = Math.floor(dta % 256);
-                op.lens[1] = Math.floor(dta / 256);
-              } else {
-                op.lens[1] = Math.floor(dta % 256);
-                op.lens[2] = Math.floor(dta / 256);
-              }
-            }
-          } else {
-            dta = op.lens[1](vars);
-            op.lens[1] = charVar8(dta);
-          }
-        }
-        if (op.lens &amp;&amp; op.lens.length &gt; 2 &amp;&amp; typeof op.lens[2] == "function") {
-          //				console.log("OPLENS3",op.lens[3], op.lens[2]);
-          dta = op.lens[2](vars);
-          if (op.lens[3] === null) {
-            dta = op.lens[2](vars);
-            if (typeof dta == "string") {
-              if (opts.endian) {
-                op.lens[2] = dta.charCodeAt(0) &amp; 0xff;
-                op.lens[3] = dta.charCodeAt(1) &amp; 0xff;
-              } else {
-                op.lens[3] = dta.charCodeAt(0) &amp; 0xff;
-                op.lens[2] = dta.charCodeAt(1) &amp; 0xff;
-              }
-            } else {
-              if (opts.endian) {
-                op.lens[3] = dta &amp; 0xff;
-                op.lens[2] = dta &gt;&gt; 8;
-              } else {
-                op.lens[2] = dta &amp; 0xff;
-                op.lens[3] = dta &gt;&gt; 8;
-              }
-            }
-          }<span class="branch-0 cbranch-no" title="branch not covered" > else {</span>
-<span class="cstat-no" title="statement not covered" >            op.lens[2] = charVar8(dta);</span>
-<span class="cstat-no" title="statement not covered" >          }</span>
-        }
 &nbsp;
-        if (op.lens &amp;&amp; op.lens.length &gt; 3 &amp;&amp; typeof op.lens[3] == "function") {
-          dta = op.lens[3](vars);
-          if (op.lens[4] === null) {
-            dta = op.lens[3](vars);
-            if (typeof dta == "string") {
-              if (opts.endian) {
-                op.lens[3] = dta.charCodeAt(0) &amp; 0xff;
-                op.lens[4] = dta.charCodeAt(1) &amp; 0xff;
-              } else {
-                op.lens[4] = dta.charCodeAt(0) &amp; 0xff;
-                op.lens[3] = dta.charCodeAt(1) &amp; 0xff;
-              }
-            } else {
-              if (opts.endian) {
-                op.lens[4] = dta &amp; 0xff;
-                op.lens[3] = dta &gt;&gt; 8;
-              } else {
-                op.lens[3] = dta &amp; 0xff;
-                op.lens[4] = dta &gt;&gt; 8;
-              }
+            if (op.lens &amp;&amp; op.lens[1] &amp;&amp; typeof op.lens[1] === "function") {
+                if (op.lens[2] === "addr24") {
+                    //3 bytes - 65816 modes
+                    dta = op.lens[1](vars);
+                    if (opts.endian) {
+                        op.lens[3] = Math.floor(dta % 256);
+                        op.lens[2] = Math.floor((dta &gt;&gt; 8) % 256);
+                        op.lens[1] = Math.floor((dta &gt;&gt; 16) &amp; 0xff);
+                    } else {
+                        op.lens[1] = Math.floor(dta % 256);
+                        op.lens[2] = Math.floor((dta &gt;&gt; 8) % 256);
+                        op.lens[3] = Math.floor((dta &gt;&gt; 16) &amp; 0xff);
+                    }
+                } else if (op.lens[2] === "addr32") {
+                    //3 bytes - 65816 modes
+                    dta = op.lens[1](vars);
+                    if (opts.endian) {
+                        op.lens[4] = Math.floor(dta % 256);
+                        op.lens[3] = Math.floor((dta &gt;&gt; 8) % 256);
+                        op.lens[2] = Math.floor((dta &gt;&gt; 16) &amp; 0xff);
+                        op.lens[1] = Math.floor((dta &gt;&gt; 24) &amp; 0xff);
+                    } else {
+                        op.lens[1] = Math.floor(dta % 256);
+                        op.lens[2] = Math.floor((dta &gt;&gt; 8) % 256);
+                        op.lens[3] = Math.floor((dta &gt;&gt; 16) &amp; 0xff);
+                        op.lens[4] = Math.floor((dta &gt;&gt; 24) &amp; 0xff);
+                    }
+                } else if (op.lens[2] === null) {
+                    //2 bytes
+                    dta = op.lens[1](vars);
+                    if (typeof dta == "string") {
+                        if (opts.endian) {
+                            op.lens[1] = dta.charCodeAt(0) &amp; 0xff;
+                            op.lens[2] = dta.charCodeAt(1) &amp; 0xff;
+                        } else {
+                            op.lens[2] = dta.charCodeAt(0) &amp; 0xff;
+                            op.lens[1] = dta.charCodeAt(1) &amp; 0xff;
+                        }
+                    } else {
+                        if (opts.endian) {
+                            op.lens[2] = Math.floor(dta % 256);
+                            op.lens[1] = Math.floor(dta / 256);
+                        } else {
+                            op.lens[1] = Math.floor(dta % 256);
+                            op.lens[2] = Math.floor(dta / 256);
+                        }
+                    }
+                } else {
+                    dta = op.lens[1](vars);
+                    op.lens[1] = charVar8(dta);
+                }
             }
-          }<span class="branch-0 cbranch-no" title="branch not covered" > else {</span>
-<span class="cstat-no" title="statement not covered" >            op.lens[3] = charVar8(dta);</span>
-<span class="cstat-no" title="statement not covered" >          }</span>
+            if (op.lens &amp;&amp; op.lens.length &gt; 2 &amp;&amp; typeof op.lens[2] == "function") {
+                //				console.log("OPLENS3",op.lens[3], op.lens[2]);
+                dta = op.lens[2](vars);
+                if (op.lens[3] === null) {
+                    dta = op.lens[2](vars);
+                    if (typeof dta == "string") {
+                        if (opts.endian) {
+                            op.lens[2] = dta.charCodeAt(0) &amp; 0xff;
+                            op.lens[3] = dta.charCodeAt(1) &amp; 0xff;
+                        } else {
+                            op.lens[3] = dta.charCodeAt(0) &amp; 0xff;
+                            op.lens[2] = dta.charCodeAt(1) &amp; 0xff;
+                        }
+                    } else {
+                        if (opts.endian) {
+                            op.lens[3] = dta &amp; 0xff;
+                            op.lens[2] = dta &gt;&gt; 8;
+                        } else {
+                            op.lens[2] = dta &amp; 0xff;
+                            op.lens[3] = dta &gt;&gt; 8;
+                        }
+                    }
+                }<span class="branch-0 cbranch-no" title="branch not covered" > else {</span>
+<span class="cstat-no" title="statement not covered" >                    op.lens[2] = charVar8(dta);</span>
+<span class="cstat-no" title="statement not covered" >                }</span>
+            }
 &nbsp;
-          //				op.lens[3] = charVar8(op.lens[3](vars)) &amp; 0xff;
+            if (op.lens &amp;&amp; op.lens.length &gt; 3 &amp;&amp; typeof op.lens[3] == "function") {
+                dta = op.lens[3](vars);
+                if (op.lens[4] === null) {
+                    dta = op.lens[3](vars);
+                    if (typeof dta == "string") {
+                        if (opts.endian) {
+                            op.lens[3] = dta.charCodeAt(0) &amp; 0xff;
+                            op.lens[4] = dta.charCodeAt(1) &amp; 0xff;
+                        } else {
+                            op.lens[4] = dta.charCodeAt(0) &amp; 0xff;
+                            op.lens[3] = dta.charCodeAt(1) &amp; 0xff;
+                        }
+                    } else {
+                        if (opts.endian) {
+                            op.lens[4] = dta &amp; 0xff;
+                            op.lens[3] = dta &gt;&gt; 8;
+                        } else {
+                            op.lens[3] = dta &amp; 0xff;
+                            op.lens[4] = dta &gt;&gt; 8;
+                        }
+                    }
+                }<span class="branch-0 cbranch-no" title="branch not covered" > else {</span>
+<span class="cstat-no" title="statement not covered" >                    op.lens[3] = charVar8(dta);</span>
+<span class="cstat-no" title="statement not covered" >                }</span>
+&nbsp;
+                //				op.lens[3] = charVar8(op.lens[3](vars)) &amp; 0xff;
+            }
+&nbsp;
+            if (op.lens &amp;&amp; op.lens.length &gt; 1) {
+                if (typeof op.lens[1] == "string") <span class="branch-0 cbranch-no" title="branch not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >                    op.lens[1] = op.lens[1].charCodeAt(0);</span>
+<span class="cstat-no" title="statement not covered" >                }</span>
+                if (isNaN(op.lens[1])) <span class="branch-0 cbranch-no" title="branch not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >                    //console.log(1201,op)</span>
+<span class="cstat-no" title="statement not covered" >                    throw {</span>
+<span class="cstat-no" title="statement not covered" >                        msg: "param out of bounds, NaN",</span>
+<span class="cstat-no" title="statement not covered" >                    };</span>
+<span class="cstat-no" title="statement not covered" >                }</span>
+                if ((op.lens[1] &gt; 255 || op.lens[1] &lt; -128) <span class="branch-0 cbranch-no" title="branch not covered" >&amp;&amp; op.lens.length == 2)</span> <span class="branch-0 cbranch-no" title="branch not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >                    throw {</span>
+<span class="cstat-no" title="statement not covered" >                        msg: "param out of bounds - " + op.lens[1],</span>
+<span class="cstat-no" title="statement not covered" >                    };</span>
+<span class="cstat-no" title="statement not covered" >                }</span>
+                if (op.lens[1] &lt; 0) <span class="branch-0 cbranch-no" title="branch not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >                    op.lens[1] = 256 + op.lens[1];</span>
+<span class="cstat-no" title="statement not covered" >                }</span>
+            }
+&nbsp;
+            //console.log(op.lens,op)
+            //xref usage
+        } catch (e) {
+            throw {
+                msg: e.msg,
+                s: op,
+                e: e,
+            };
         }
-&nbsp;
-        if (op.lens &amp;&amp; op.lens.length &gt; 1) {
-          if (typeof op.lens[1] == "string") <span class="branch-0 cbranch-no" title="branch not covered" >{</span>
-<span class="cstat-no" title="statement not covered" >            op.lens[1] = op.lens[1].charCodeAt(0);</span>
-<span class="cstat-no" title="statement not covered" >          }</span>
-          if (isNaN(op.lens[1])) <span class="branch-0 cbranch-no" title="branch not covered" >{</span>
-<span class="cstat-no" title="statement not covered" >            //console.log(1201,op)</span>
-<span class="cstat-no" title="statement not covered" >            throw {</span>
-<span class="cstat-no" title="statement not covered" >              msg: "param out of bounds, NaN"</span>
-<span class="cstat-no" title="statement not covered" >            };</span>
-<span class="cstat-no" title="statement not covered" >          }</span>
-          if ((op.lens[1] &gt; 255 || op.lens[1] &lt; -128) <span class="branch-0 cbranch-no" title="branch not covered" >&amp;&amp; op.lens.length == 2)</span> <span class="branch-0 cbranch-no" title="branch not covered" >{</span>
-<span class="cstat-no" title="statement not covered" >            throw {</span>
-<span class="cstat-no" title="statement not covered" >              msg: "param out of bounds - " + op.lens[1]</span>
-<span class="cstat-no" title="statement not covered" >            };</span>
-<span class="cstat-no" title="statement not covered" >          }</span>
-          if (op.lens[1] &lt; 0) <span class="branch-0 cbranch-no" title="branch not covered" >{</span>
-<span class="cstat-no" title="statement not covered" >            op.lens[1] = 256 + op.lens[1];</span>
-<span class="cstat-no" title="statement not covered" >          }</span>
-        }
-&nbsp;
-        //console.log(op.lens,op)
-        //xref usage
-      } catch (e) {
-        throw {
-          msg: e.msg,
-          s: op,
-          e: e
-        };
-      }
     }
 &nbsp;
     return [V, vars];
-  };</pre></td></tr></table></pre>
+};
+&nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-06-27T23:09:40.936Z
+                at 2023-10-19T13:42:58.664Z
             </div>
         <script src="../prettify.js"></script>
         <script>

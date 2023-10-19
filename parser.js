@@ -7,20 +7,20 @@ import { parseLine } from "./parseLine.js";
 import { toInternal, nonempty, norm } from "./utils/utils.js";
 
 export const parse = (s, opts) => {
-  // split and convert to internal lines
-  let i = toInternal(s.split(/\n/));
-  //remove empty lines
-  i = nonempty(i);
-  //normalize lines
-  i = norm(i);
+    // split and convert to internal lines
+    let i = toInternal(s.split(/\n/));
+    //remove empty lines
+    i = nonempty(i);
+    //normalize lines
+    i = norm(i);
 
-  //macro processing and expansion
-  
-  let prei = prepro(i, opts);
-  //console.log(prei)
-  i = prei[0].map((line) => parseLine(line, prei[1], opts));
-  i = unroll(i, prei[1], null, opts);
-  
-  //console.log("prei",i)
-  return i;
+    //macro processing and expansion
+
+    let prei = prepro(i, opts);
+    //console.log(prei)
+    i = prei[0].map((line) => parseLine(line, prei[1], opts));
+    i = unroll(i, prei[1], null, opts);
+
+    //console.log("prei",i)
+    return i;
 };
